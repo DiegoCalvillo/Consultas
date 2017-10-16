@@ -1,0 +1,11 @@
+Link temporal de consultas
+
+//Página de inicio
+http://10.100.3.9:8080/inicio
+
+//Página de Usuarios
+http://10.100.3.9:8080/usuarios
+http://10.100.3.9:8080/usuarios/create
+
+//Página de Equipos
+http://10.100.3.9:8080/equipos
