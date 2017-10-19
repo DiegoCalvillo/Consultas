@@ -24,7 +24,7 @@
 
 @section('content_aplicativos_desarrollo')
 <div id="page-wrapper">
-	<form method="POST" action="http://10.100.40.2:8080/aplicativos/search" accept-charset="UTF-8" enctype="multipart/form-data">
+	<form method="POST" action="http://10.100.45.50:8080/aplicativos/search" accept-charset="UTF-8" enctype="multipart/form-data">
 	{!! csrf_field() !!}
 		<div class="row">
 			<div class="col-lg-12">
@@ -74,7 +74,7 @@
 								@foreach($aplicativos as $aplicativos)
 									<tr>
 										<td>{{ $aplicativos -> nombre_aplicativo }}</td>
-										<td>{{ $aplicativos -> ubicacion_servidor }}</td>
+										<td>{{ $aplicativos -> equipos -> direccion_ip }}</td>
 										<td><a href=".$aplicativos['link_aplicativo'].">{{ $aplicativos -> link_aplicativo }}</a></td>
 										@if(Auth::user()->puesto_id == 5)
 											<td>

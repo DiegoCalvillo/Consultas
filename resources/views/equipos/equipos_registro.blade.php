@@ -2,7 +2,7 @@
 
 @section('content_equipos_registro')
 <div id="page-wrapper">
-	<form method="POST" action="http://10.100.40.2:8080/equipos/store" accept-charset="UTF-8" enctype="multipart/form-data">
+	<form method="POST" action="http://10.100.45.50:8080/equipos/store" accept-charset="UTF-8" enctype="multipart/form-data">
 	{!! csrf_field() !!}
 	@include('alerts.request')
 		<div class="row">

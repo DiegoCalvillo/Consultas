@@ -5,6 +5,7 @@ namespace Consultas\Http\Controllers;
 use Illuminate\Http\Request;
 use Consultas\Http\Requests\AplicativoCreateRequest;
 use Consultas\Aplicativos as Aplicativos;
+use Consultas\Equipos as Equipos;
 
 class AplicativosController extends Controller
 {
@@ -22,7 +23,8 @@ class AplicativosController extends Controller
 
     public function create()
     {
-    	return view('aplicativos.aplicativos_registro');
+        $equipos = Equipos::where('tipoequipo_id', '=', 2)->get();
+    	return view('aplicativos.aplicativos_registro')->with('equipos', $equipos);
     }
 
     public function store(AplicativoCreateRequest $request)

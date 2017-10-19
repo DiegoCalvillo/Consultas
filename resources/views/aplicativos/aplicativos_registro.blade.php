@@ -4,7 +4,7 @@
 
 @section('content_aplicativos_registro')
 <div id="page-wrapper">
-	<form method="POST" action="http://10.100.40.2:8080/aplicativos/store" accept-charset="UTF-8" enctype="multipart/form-data">
+	<form method="POST" action="http://10.100.45.50:8080/aplicativos/store" accept-charset="UTF-8" enctype="multipart/form-data">
 	{!! csrf_field() !!}
 	@include('alerts.request')
 		<div class="row">
@@ -47,7 +47,12 @@
 							</div>
 							<div class="col-lg-6">
 								<label>Dirección IP del Servidor</label>
-								<input class="form-control" name="ubicacion_servidor">
+								<select class="form-control" name="ubicacion_servidor">
+									<option selected="true" disabled="disabled">Seleccione...</option>
+									<?php foreach ($equipos as $equipos) 
+										echo '<option value= "'.$equipos['id'].'">'.$equipos['direccion_ip'].'</option>';
+									?>
+								</select>
 							</div>
 						</div>
 					</div>

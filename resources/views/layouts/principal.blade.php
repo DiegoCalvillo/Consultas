@@ -395,7 +395,7 @@
                                         </li>
                                         @if(Auth::user()->puesto_id == 5)
                                         <li>
-                                            <a href="/http://10.100.45.50:8080aplicativos/create">Alta de Nuevos Aplicativos</a>
+                                            <a href="http://10.100.45.50:8080/aplicativos/create">Alta de Nuevos Aplicativos</a>
                                         </li>
                                         @endif
                                     </ul>
