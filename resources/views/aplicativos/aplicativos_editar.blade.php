@@ -47,7 +47,18 @@
 							<div class="col-lg-6">
 								<div class="form-group">
 									{!! Form::label('full_name', 'Dirección IP del Servidor') !!}
-									{!! Form::text('ubicacion_servidor', null, ['class' => 'form-control', 'required' => 'required']) !!}
+									{!! Form::text('ubicacion_servidor', $aplicativos -> equipos -> direccion_ip, ['class' => 'form-control', 'required' => 'required']) !!}
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									{!! Form::label('full_name', 'Cambiar la dirección IP') !!}
+									<select class="form-control" name="ubicacion_servidor">
+										<option value="{{ $aplicativos->equipos->id }}">Seleccione</option>
+										<?php foreach($equipos as $equipos){
+											echo '<option value= "'.$equipos['id'].'">'.$equipos['direccion_ip'].'</option>';
+										}?>
+									</select>
 								</div>
 							</div>
 						</div>

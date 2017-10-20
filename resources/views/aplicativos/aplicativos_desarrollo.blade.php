@@ -71,40 +71,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($aplicativos as $aplicativos)
+								@foreach($aplicativos as $aplicativo)
 									<tr>
-										<td>{{ $aplicativos -> nombre_aplicativo }}</td>
-										<td>{{ $aplicativos -> equipos -> direccion_ip }}</td>
-										<td><a href=".$aplicativos['link_aplicativo'].">{{ $aplicativos -> link_aplicativo }}</a></td>
+										<td>{{ $aplicativo -> nombre_aplicativo }}</td>
+										<td>{{ $aplicativo -> equipos -> direccion_ip }}</td>
+										<td><a href=".$aplicativo['link_aplicativo'].">{{ $aplicativo -> link_aplicativo }}</a></td>
 										@if(Auth::user()->puesto_id == 5)
 											<td>
-												<a href="{{ route('aplicativos/edit', ['id' => $aplicativos->id] )}}" class="btn btn-primary btn-xs glyphicon glyphicon-pencil"></a>
-												<a href="{{ route('aplicativos/destroy', ['id' => $aplicativos->id] )}}" class="btn btn-danger btn-xs glyphicon glyphicon-trash"></a>
+												<a href="{{ route('aplicativos/edit', ['id' => $aplicativo->id] )}}" class="btn btn-primary btn-xs glyphicon glyphicon-pencil"></a>
+												<a href="{{ route('aplicativos/destroy', ['id' => $aplicativo->id] )}}" class="btn btn-danger btn-xs glyphicon glyphicon-trash"></a>
 											</td>
 										@endif
 									</tr>
 								@endforeach
 							</tbody>
 						</table>
-						<nav aria-label="Page navigation">
-							<ul class="pagination">
-								<li>
-									<a href="#" aria-label="Previus">
-										<span aria-hidden="true">&laquo;</span>
-									</a>
-								</li>
-								<li><a href="#">1</a></li>
-                            	<li><a href="#">2</a></li>
-                            	<li><a href="#">3</a></li>
-                            	<li><a href="#">4</a></li>
-                            	<li><a href="#">5</a></li>
-                            	<li>
-                            		<a href="#" aria-label="Next">
-                            			<span aria-hidden="true">&raquo;</span>
-                            		</a>
-                            	</li>
-							</ul>
-						</nav>
+						{{ $aplicativos->links() }}
 					</div>
 				</div>
 			</div>

@@ -17,7 +17,7 @@ class AplicativosController extends Controller
     
     public function index()
     {
-    	$aplicativos = Aplicativos::all();
+    	$aplicativos = Aplicativos::paginate(6);
     	return view('aplicativos.aplicativos_desarrollo')->with('aplicativos', $aplicativos);
     }
 
@@ -40,7 +40,8 @@ class AplicativosController extends Controller
     public function edit($id)
     {
         $aplicativos = Aplicativos::find($id);
-        return view('aplicativos.aplicativos_editar', compact('aplicativos'));
+        $equipos = Equipos::where('tipoequipo_id', '=', 2)->get();
+        return view('aplicativos.aplicativos_editar', compact('aplicativos'))->with('equipos', $equipos);
     }
 
     public function update(Request $request)
@@ -55,7 +56,7 @@ class AplicativosController extends Controller
 
     public function search(Request $request)
     {
-        $aplicativos = Aplicativos::where('nombre_aplicativo', 'like', '%'.$request-> nombre_aplicativo.'%')->get();
+        $aplicativos = Aplicativos::where('nombre_aplicativo', 'like', '%'.$request-> nombre_aplicativo.'%')->paginate(1);
         return \View::make('aplicativos.aplicativos_desarrollo', compact('aplicativos'));
     }
 

@@ -4,7 +4,7 @@
 
 @section('content_sistemas_registro')
 <div id="page-wrapper">
-	<form method="POST" action="http://10.100.40.2:8080/sistemas/store" accept-charset="UTF-8" enctype="multipart/form-data">
+	<form method="POST" action="http://10.100.45.50:8080/sistemas/store" accept-charset="UTF-8" enctype="multipart/form-data">
 	{!! csrf_field() !!}
 		<div class="row">
 		@include('alerts.request')
