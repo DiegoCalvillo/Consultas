@@ -34,7 +34,6 @@ Route::post('equipos/store', 'EquipoController@store');
 Route::post('equipos/search', 'EquipoController@search');
 Route::get('equipos/create', ['as' => 'equipos/create', 'uses' => 'EquipoController@create']);
 Route::get('equipos/{id}/edit', ['as' => 'equipos/edit', 'uses' => 'EquipoController@edit']);
-Route::get('equipos/destroy/{id}', ['as' => 'equipos/destroy', 'uses' => 'EquipoController@destroy']);
 Route::put('equipos/update', ['as' => 'equipos/update', 'uses' => 'EquipoController@update']);
 
 //Rutas del controlador AplicativosController

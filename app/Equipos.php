@@ -8,7 +8,7 @@ class Equipos extends Model
 {
 	protected $table = 'Equipos';
 
-    protected $fillable = ['id', 'nombre_equipo', 'direccion_ip', 'tipoequipo_id', 'usuario_equipo', 'contraseña_equipo', 'centros_id', 'sistemas_ops_id'];
+    protected $fillable = ['id', 'nombre_equipo', 'direccion_ip', 'tipoequipo_id', 'usuario_equipo', 'contraseña_equipo', 'centros_id', 'sistemas_ops_id', 'estatus_id'];
 
     public function Centros()
     {
@@ -23,6 +23,11 @@ class Equipos extends Model
    public function SistemasOp()
    {
       return $this->belongsTo(SistemasOp::class, 'sistemas_ops_id');
+   }
+
+   public function Estatus()
+   {
+      return $this->belongsTo(Estatus::class);
    }
 
 } 

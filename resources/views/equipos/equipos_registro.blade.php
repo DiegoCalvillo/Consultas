@@ -29,7 +29,7 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Agregar Nuevo Registro
+						<b>Agregar Nuevo Equipo</b>
 					</div>
 					<div class="panel-body">
 						<div class="row">
@@ -56,10 +56,6 @@
 										}?>
 									</select>
 								</div>
-								<div class="form-group">
-									<label>Contraseña del Equipo</label>
-									<input class="form-control" name="contraseña_equipo" id="contraseña_equipo">
-								</div>
 						</div>
 						<div class="col-lg-6">
 								<div class="form-group">
@@ -75,10 +71,27 @@
 										}?>
 									</select>
 								</div>
-								<div class="form-group">
-									<label>Nombre de Usuario</label>
-									<input class="form-control" name="usuario_equipo" id="usuario_equipo">
-								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<b>Credenciales de Usuario del Equipo</b>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label>Nombre de Usuario</label>
+								<input class="form-control" name="usuario_equipo" id="usuario_equipo">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label>Contraseña del Equipo</label>
+								<input class="form-control" name="contraseña_equipo" id="contraseña_equipo">
+							</div>
 						</div>
 					</div>
 				</div>

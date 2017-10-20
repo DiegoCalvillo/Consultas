@@ -32,7 +32,7 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Agregar Nuevo Registro
+						<b>Editar Registro</b>
 					</div>
 					<div class="panel-body">
 						<div class="row">
@@ -54,8 +54,8 @@
 									{!! Form::text('sistemas_ops_id', $equipos -> SistemasOp -> nombre_sistema_op, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 								</div>
 								<div class="form-group">
-									{!! Form::label('full_name', 'Nombre de Usuario') !!}
-									{!! Form::text('usuario_equipo', null, ['class' => 'form-control', 'required'  => 'required']) !!}
+									{!! Form::label('full_name', 'Estatus') !!}
+									{!! Form::text('estatus_id', $equipos -> Estatus -> nombre_estatus, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
 								</div>
 						</div>
 						<div class="col-lg-6">
@@ -91,10 +91,36 @@
 									</select>
 								</div>
 								<div class="form-group">
-									{!! Form::label('full_name', 'Contraseña del Equipo') !!}
-									{!! Form::text('contraseña_equipo', null, ['class' => 'form-control', 'required' => 'required']) !!}
+									{!! Form::label('full_name', 'Cambiar Estatus') !!}
+									<select class="form-control" name="estatus_id">
+										<option value="{{ $equipos->Estatus->id }}">Seleccione</option>
+										<?php foreach ($estatus as $estatus){
+											echo '<option value ="'.$estatus['id'].'">'.$estatus['nombre_estatus'].'</option>';
+										}?>
+									</select>
 								</div>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<b>Credenciales de Usuario del Equipo</b>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="form-group">
+								{!! Form::label('full_name', 'Nombre de Usuario') !!}
+								{!! Form::text('usuario_equipo', null, ['class' => 'form-control', 'required'  => 'required']) !!}
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="form-group">
+								{!! Form::label('full_name', 'Contraseña del Equipo') !!}
+								{!! Form::text('contraseña_equipo', null, ['class' => 'form-control', 'required' => 'required']) !!}
+							</div>
+						</div>			
 					</div>
 				</div>
 			</div>

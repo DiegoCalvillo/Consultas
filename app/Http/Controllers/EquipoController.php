@@ -8,6 +8,7 @@ use Consultas\Equipos as Equipos;
 use Consultas\TipoEquipo as TipoEquipo; //Se invoca a la clase TipoEquipo para que se pueda elegir el tipo de equipo desde el registro de Equipos
 use Consultas\centros as centros;
 use Consultas\SistemasOp as SistemasOp;
+use Consultas\Estatus as Estatus;
 
 class EquipoController extends Controller
 {
@@ -41,15 +42,9 @@ class EquipoController extends Controller
         $equipos->contraseña_equipo = $request->contraseña_equipo;
         $equipos->centros_id = $request->centros_id;
         $equipos->sistemas_ops_id = $request->sistemas_ops_id;
+        $equipos->estatus_id = 1;
         $equipos->save();
         return redirect('/equipos')->with('message', 'store'); 
-    }
-
-    public function destroy($id)
-    {
-        $equipos = Equipos::find($id);
-        $equipos->delete();
-        return redirect('/equipos')->with('message', 'destroy');
     }
 
     public function edit($id)
@@ -58,7 +53,8 @@ class EquipoController extends Controller
         $tipos = TipoEquipo::all();
         $centros = centros::all();
         $sistemas = SistemasOp::all();
-        return view('equipos.equipos_editar', compact('equipos'))->with('tipo_equipos', $tipos)->with('centros', $centros)->with('sistemas_ops', $sistemas);
+        $estatus = Estatus::all();
+        return view('equipos.equipos_editar', compact('equipos'))->with('tipo_equipos', $tipos)->with('centros', $centros)->with('sistemas_ops', $sistemas)->with('estatus', $estatus);
     }
 
     public function update(Request $request)
@@ -71,6 +67,7 @@ class EquipoController extends Controller
         $equipos->centros_id = $request->centros_id;
         $equipos->contraseña_equipo = $request->contraseña_equipo;
         $equipos->sistemas_ops_id = $request->sistemas_ops_id;
+        $equipos->estatus_id = $request->estatus_id;
         $equipos->save();
         return redirect('/equipos')->with('message', 'edit');
     }

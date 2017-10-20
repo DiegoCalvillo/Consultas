@@ -14,12 +14,6 @@
         </div>
 	@endif
 
-	@if($message == 'destroy')
-		<div class="alert alert-danger" role="alert">
-  			<strong>Registro eliminado exitosamente!</strong> <a href="/equipos" class="alert-link">Click aqui para quitar mensaje</a>
-		</div>
-	@endif
-
 @section('title', '- Equipos')
 
 @section('content_equipos_desarrollo')
@@ -69,6 +63,7 @@
 								<th>Usuario</th>
 								<th>Contraseña de Usuario</th>
 								<th>Centro</th>
+								<th>Estatus</th>
 								@if(Auth::user()->puesto_id == 5)
 								<th>Opciones</th>
 								@endif
@@ -84,10 +79,10 @@
 									<td>{{ $equipos -> usuario_equipo }}</td>
 									<td>{{ $equipos -> contraseña_equipo }}</td>
 									<td>{{ $equipos -> centros -> nombre_centro }}</td>
+									<td>{{ $equipos -> Estatus -> nombre_estatus }}</td>
 									@if(Auth::user()->puesto_id == 5)
 									<td>
 										<a class="btn btn-primary btn-xs glyphicon glyphicon-pencil" href="{{ route('equipos/edit', ['id' => $equipos->id] )}}"></a>
-										<a class="btn btn-danger btn-xs glyphicon glyphicon-trash" href="{{ route('equipos/destroy', ['id' => $equipos->id] )}}"></a>
 									</td>
 									@endif
 								</tr>
