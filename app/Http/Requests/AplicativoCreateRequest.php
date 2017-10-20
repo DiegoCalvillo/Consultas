@@ -29,4 +29,13 @@ class AplicativoCreateRequest extends FormRequest
             'link_aplicativo' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nombre_aplicativo.required' => 'El campo Aplicativo es obligatorio',
+            'ubicacion_servidor.required' => 'El campo Dirección IP del Servidor es obligatorio',
+            'link_aplicativo.required' => 'El campo URL del Aplicativo es obligatorio',      
+        ];
+    }
 }
