@@ -18,7 +18,7 @@
 
 @section('content_equipos_desarrollo')
 <div id="page-wrapper">
-	<form method="POST" action="http://10.100.40.2:8080/equipos/search" accept-charset="UTF-8" enctype="multipart/form-data">
+	<form method="POST" action="http://10.100.45.50:8080/equipos/search" accept-charset="UTF-8" enctype="multipart/form-data">
 	{!! csrf_field() !!}
 		<div class="row">
 			<div class="col-lg-12">
@@ -70,46 +70,26 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($equipos as $equipos)
+							@foreach($equipos as $equipo)
 								<tr>
-									<td>{{ $equipos -> nombre_equipo }}</td>
-									<td>{{ $equipos -> direccion_ip }}</td>
-									<td>{{ $equipos -> TipoEquipo->nombre_tipo_equipo }}</td>
-									<td>{{ $equipos -> SistemasOp -> nombre_sistema_op }}</td>
-									<td>{{ $equipos -> usuario_equipo }}</td>
-									<td>{{ $equipos -> contraseña_equipo }}</td>
-									<td>{{ $equipos -> centros -> nombre_centro }}</td>
-									<td>{{ $equipos -> Estatus -> nombre_estatus }}</td>
+									<td>{{ $equipo -> nombre_equipo }}</td>
+									<td>{{ $equipo -> direccion_ip }}</td>
+									<td>{{ $equipo -> TipoEquipo->nombre_tipo_equipo }}</td>
+									<td>{{ $equipo -> SistemasOp -> nombre_sistema_op }}</td>
+									<td>{{ $equipo -> usuario_equipo }}</td>
+									<td>{{ $equipo -> contraseña_equipo }}</td>
+									<td>{{ $equipo -> centros -> nombre_centro }}</td>
+									<td>{{ $equipo -> Estatus -> nombre_estatus }}</td>
 									@if(Auth::user()->puesto_id == 5)
 									<td>
-										<a class="btn btn-primary btn-xs glyphicon glyphicon-pencil" href="{{ route('equipos/edit', ['id' => $equipos->id] )}}"></a>
+										<a class="btn btn-primary btn-xs glyphicon glyphicon-pencil" href="{{ route('equipos/edit', ['id' => $equipo->id] )}}"></a>
 									</td>
 									@endif
 								</tr>
 							@endforeach
 						</tbody>
 					</table>
-					<!-- Navegaición por la tabla -->
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previus">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                             <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <!-- /.nav -->
+					{{ $equipos->links() }}
 				</div>
 			</div>
 		</div>

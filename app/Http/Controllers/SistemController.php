@@ -16,7 +16,7 @@ class SistemController extends Controller
     
     public function index()
     {
-    	$sistemas = SistemasOp::all();
+    	$sistemas = SistemasOp::paginate(6);
     	return view('sistemasoperativos.sistemasoperativos_desarrollo')->with('sistemas_ops', $sistemas);
     }
 

@@ -5,7 +5,7 @@ namespace Consultas\Http\Controllers;
 use Illuminate\Http\Request;
 use Consultas\Http\Requests\EquiposCreateRequest;
 use Consultas\Equipos as Equipos;
-use Consultas\TipoEquipo as TipoEquipo; //Se invoca a la clase TipoEquipo para que se pueda elegir el tipo de equipo desde el registro de Equipos
+use Consultas\TipoEquipo as TipoEquipo; 
 use Consultas\centros as centros;
 use Consultas\SistemasOp as SistemasOp;
 use Consultas\Estatus as Estatus;
@@ -20,7 +20,7 @@ class EquipoController extends Controller
     
     public function index()
     {
-    	$equipos = Equipos::all();
+    	$equipos = Equipos::paginate(6);
     	return view('equipos.equipos_desarrollo')->with('equipos', $equipos);
     }
 
@@ -74,7 +74,7 @@ class EquipoController extends Controller
 
     public function search(Request $request)
     {
-       $equipos = Equipos::where('nombre_equipo', 'like', '%'.$request-> nombre_equipo.'%' )->get();
+       $equipos = Equipos::where('nombre_equipo', 'like', '%'.$request-> nombre_equipo.'%' )->paginate(1);
        return \View::make('equipos.equipos_desarrollo', compact('equipos'));
     }
 }
