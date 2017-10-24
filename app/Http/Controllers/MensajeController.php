@@ -19,7 +19,7 @@ class MensajeController extends Controller
 
     public function index()
     {
-    	$users = User::where('id', '!=', Auth::User()->id)->get();
+    	$users = User::where('estatus_id', '=', 1)->get();
     	return view('mensajes.mensaje')->with('users', $users);
     }
 

@@ -20,7 +20,7 @@ class EquipoController extends Controller
     
     public function index()
     {
-    	$equipos = Equipos::paginate(6);
+    	$equipos = Equipos::paginate(5);
     	return view('equipos.equipos_desarrollo')->with('equipos', $equipos);
     }
 
