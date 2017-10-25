@@ -20,8 +20,14 @@ class UsuariosController extends Controller
     
     public function index()
     {
-      $users = User::paginate(6);
+        $users = User::paginate(6);
     	return view('usuarios.usuarios_desarrollo')->with('users', $users);
+    }
+
+    public function show($id)
+    {
+        $users = User::find($id);
+        return view('usuarios.usuarios_perfil')->with('users', $users);
     }
 
    public function store(UserCreateRequest $request)

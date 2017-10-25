@@ -22,6 +22,7 @@ Route::get('/notificaciones', 'FronController@notificaciones');
 
 //Rutas del controlador UsuariosController
 Route::resource('/usuarios', 'UsuariosController');
+Route::get('usuarios/{id}', ['as' => 'usuarios/show', 'uses' => 'UsuariosController@show']);
 Route::post('usuarios/store', 'UsuariosController@store'); //Ruta para guardar registros
 Route::post('usuarios/search', ['as' => 'usuarios/search', 'uses' => 'UsuariosController@search']); //Ruta para buscar los registros en la tabla
 Route::get('usuarios/create', ['as' => 'usuarios/create', 'uses' => 'UsuariosController@create']); //Ruta para crear nuevos registros

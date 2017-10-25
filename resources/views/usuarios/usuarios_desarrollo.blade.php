@@ -58,10 +58,6 @@
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Rol de Usuario</th>
-                                        <th>SARE</th>
-                                        <th>Nombre de Usuario</th>
-                                        <th>Centro</th>
                                         <th>Estatus</th>
                                         <th>Ultimo Inicio de Sesión</th>
                                         <th>Opciones</th>
@@ -71,14 +67,11 @@
                                     @foreach($users as $user)
                                         <tr>
                                             <td>{{ $user -> name }}</td>
-                                            <td>{{ $user -> Puesto -> nombre_puesto }}</td>
-                                            <td>{{ $user -> SARE}}</td>
-                                            <td>{{ $user -> username }}</td>
-                                            <td>{{ $user -> centros -> nombre_centro }}</td>
                                             <td>{{ $user -> estatus -> nombre_estatus }}</td>
                                             <td>{{ $user -> last_login }}</td>
                                             <td>
                                                 <a class="btn btn-primary btn-xs glyphicon glyphicon-pencil" href="{{ route('usuarios/edit', ['id' => $user->id] )}}"></a>
+                                                <a class="btn btn-success btn-xs glyphicon glyphicon-user" href="{{ route('usuarios/show', ['id' => $user->id] )}}"></a>
                                             </td>
                                         </tr>
                                     @endforeach

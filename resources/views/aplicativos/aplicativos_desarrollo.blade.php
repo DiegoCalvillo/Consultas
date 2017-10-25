@@ -75,7 +75,7 @@
 									<tr>
 										<td>{{ $aplicativo -> nombre_aplicativo }}</td>
 										<td>{{ $aplicativo -> equipos -> direccion_ip }}</td>
-										<td><a href=".$aplicativo['link_aplicativo'].">{{ $aplicativo -> link_aplicativo }}</a></td>
+										<td><a href="{{ $aplicativo -> link_aplicativo }}" target="_blank">{{ $aplicativo -> link_aplicativo }}</a></td>
 										@if(Auth::user()->puesto_id == 5)
 											<td>
 												<a href="{{ route('aplicativos/edit', ['id' => $aplicativo->id] )}}" class="btn btn-primary btn-xs glyphicon glyphicon-pencil"></a>

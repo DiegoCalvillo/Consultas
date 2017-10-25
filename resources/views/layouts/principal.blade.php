@@ -283,7 +283,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i>{!!Auth::user()->name!!}</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ver Perfil</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a>
@@ -499,7 +499,7 @@
 @yield('content_flot')
 <!--Usuarios-->
 @yield('content_usuarios_desarrollo')
-@yield('content_usuarios_gerencia')
+@yield('content_usuarios_perfil')
 @yield('content_usuarios_direccion')
 @yield('content_usuario_registro')
 <!--Equipos-->
